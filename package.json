@@ -1,0 +1,46 @@
+{
+  "name": "vocdashboard",
+  "version": "1.0.0",
+  "description": "dashboard for voc work",
+  "main": "index.js",
+  "scripts": {
+    "dev": "gulp dev",
+    "build": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ramylee-github/vocDashboard.git"
+  },
+  "author": "RAMY LEE <boram1073@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ramylee-github/vocDashboard/issues"
+  },
+  "homepage": "https://github.com/ramylee-github/vocDashboard#readme",
+  "devDependencies": {
+    "@babel/core": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "@babel/register": "^7.16.5",
+    "babelify": "^10.0.0",
+    "browserslist": "^4.19.1",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-bro": "^2.0.0",
+    "gulp-csso": "^4.0.1",
+    "gulp-gh-pages": "^0.5.4",
+    "gulp-image": "^6.3.1",
+    "gulp-pug": "^5.0.0",
+    "gulp-sass": "^5.0.0",
+    "gulp-watch": "^5.0.1",
+    "gulp-webserver": "^0.9.1",
+    "uglifyify": "^5.0.2"
+  },
+  "dependencies": {
+    "gulp-cli": "^2.3.0",
+    "node-sass": "^7.0.1"
+  },
+  "browserslist": [
+    "last 2 version"
+  ]
+}
