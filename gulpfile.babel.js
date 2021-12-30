@@ -3,13 +3,16 @@ import gpug from "gulp-pug";
 import del from "del";
 import ws from "gulp-webserver";
 import image from "gulp-image";
-import sass from "gulp-sass";
+import dsass from "sass";
+import gsass from "gulp-sass";
 import autoprefixer from "gulp-autoprefixer";
 import miniCSS from "gulp-csso";
 import browserify from "gulp-bro";
 import babelify from "babelify";
 
-sass.compiler = require("node-sass");
+const sass = gsass(dsass);
+
+// sass.compiler = require("node-sass");
 
 const routes = {
     pug: {
@@ -59,7 +62,7 @@ const img = () =>
 
 const styles = () =>  
     gulp.src(routes.scss.src)
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass.sync().on('error', sass.logError))
     .pipe(autoprefixer({
         cascade: false
     }))
@@ -79,7 +82,7 @@ const js = () =>
     gulp.src(routes.js.src)
     .pipe(browserify({
         transform: [
-            babelify.configure({ presets: ["@babel/preset-react", "@babel/preset-env"]}),
+            babelify.configure({ presets: ["@babel/preset-env"]}),
             ["uglifyify", {global: true}],
         ]
     }))
@@ -96,7 +99,7 @@ const watch = () => {
 
 const prepare = gulp.series([clean, img]);
 
-const assets = gulp.series([pug, styles, libStyles, js]);
+const assets = gulp.series([pug, styles, js]);
 
 const postDev = gulp.parallel([webserver, watch]);
 

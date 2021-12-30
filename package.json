@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "vocdashboard",
   "version": "1.0.0",
   "description": "dashboard for voc work",
@@ -34,11 +35,11 @@
     "gulp-sass": "^5.0.0",
     "gulp-watch": "^5.0.1",
     "gulp-webserver": "^0.9.1",
+    "sass": "^1.45.1",
     "uglifyify": "^5.0.2"
   },
   "dependencies": {
-    "gulp-cli": "^2.3.0",
-    "node-sass": "^7.0.1"
+    "gulp-cli": "^2.3.0"
   },
   "browserslist": [
     "last 2 version"

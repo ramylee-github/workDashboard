@@ -1,5 +1,30 @@
-extents templates/layout
+extends templates/layout
+include mixins/countNumber
+
 
 block content 
     main.main-container 
-        h2 VOC Dashboard
+        div.main-inner
+            h2.blind VOC 현황
+            div.flex-layout.justify-sb.align-end.top-section
+
+            div.flex-layout.justify-sb.align-stretch.btm-section
+                article.data-area.last-3m
+                    h3.blind 최근 3개월 금감원, 대내민원 접수, 처리기일
+                    div#tabs1
+                        ul.tab-list 
+                            li.active(data-tit='firstTab1_1') 
+                                span.tab-tit 최근 3개월 금감원 목표
+                            li(data-tit='firstTab1_2') 
+                                span.tab-tit 최근 3개월대내민원접수/처리기일
+                        div.tab-cont#firstTab1_1
+                            div.last-3m__list
+                                +countNumber({
+                                    bigtit:'10월 목표 및 발생',
+                                    tit:'',
+                                    exBigContClass:'flex-layout justify-end',
+                                    exNumClass:'flex-layout justify-sb',
+                                    exGapClass:'gap-point--up',
+                                })
+                        div.tab-cont#firstTab1_2
+                article.data-area.bytype
