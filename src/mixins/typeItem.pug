@@ -1,0 +1,9 @@
+mixin typeItem(typeIteminfo = {})
+   li.bytype__item(class=(typeIteminfo.exItemClass))
+      dl
+         dt=typeIteminfo.typeItemTitle
+         dd
+            strong.num(class=(typeIteminfo.exNumClass))=typeIteminfo.num
+            span.unit 건
+                            
+               
