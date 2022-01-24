@@ -3621,6 +3621,11 @@ gulp-pug@^5.0.0:
     through2 "^4.0.2"
     vinyl-contents "^1.0.0"
 
+gulp-rename@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/gulp-rename/-/gulp-rename-2.0.0.tgz#9bbc3962b0c0f52fc67cd5eaff6c223ec5b9cf6c"
+  integrity sha512-97Vba4KBzbYmR5VBs9mWmK+HwIf5mj+/zioxfZhOKeXtx5ZjBk57KFlePf5nxq9QsTtFl0ejnHE3zTC9MHXqyQ==
+
 gulp-sass@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/gulp-sass/-/gulp-sass-5.0.0.tgz#c338fc021e450a51ae977fea9014eda331ce66b7"
@@ -3633,6 +3638,11 @@ gulp-sass@^5.0.0:
     strip-ansi "^6.0.0"
     transfob "^1.0.0"
     vinyl-sourcemaps-apply "^0.2.1"
+
+gulp-sourcemap@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/gulp-sourcemap/-/gulp-sourcemap-1.0.1.tgz#9c006002cb831de40eff7b805a147c79ebbba9f8"
+  integrity sha1-nABgAsuDHeQO/3uAWhR8eeu7qfg=
 
 gulp-sourcemaps@1.6.0:
   version "1.6.0"

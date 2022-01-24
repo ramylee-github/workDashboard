@@ -1,7 +1,6 @@
 extends templates/layout
-include mixins/countNumber
-include mixins/gapPoint
-include mixins/typeItem
+include templates/utilities/countNumber
+include templates/utilities/typeItem
 
 
 block content 
@@ -123,4 +122,28 @@ block content
                             div.graph-area#chart04(style=('height: 180px;'))
                 article.box.voc-status
                     h3 VOC 업무현황
+                    ul.voc__summary 
+                        li 
+                            +countNumber({
+                                tit:'나의결재',
+                                num:'12',
+                                numClass: '',
+                                unitClass: '',
+                            })
+                        li 
+                            +countNumber({
+                                tit:'미결건',
+                                num:'138',
+                                numClass: '',
+                                unitClass: '',
+                            })
+                        li.--emphasized 
+                            +countNumber({
+                                tit:'미확인 (협조 / VOC)',
+                                num:'56',
+                                numClass: '',
+                                unitClass: '',
+                            })
+                            span (0 / 2)
+                    
                 

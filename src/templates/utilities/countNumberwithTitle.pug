@@ -1,0 +1,38 @@
+include ../components/numbers
+
+mixin countNumberwithTitle(numberInfo = {})
+    dl.count-number
+        dt.count-number__big-tit=numberInfo.bigTitle
+        dd.count-number__big-cont(class=(numberInfo.exBigContClass))
+                div.flex-layout.justify-sb
+                    if tit
+                        span.count-number__tit=numberInfo.tit
+                        div.count-number__cont
+                            +number({
+                                numClass:'count-number__num'+numberInfo.numClass,
+                                num:numberInfo.num
+                            })
+                            +unit({
+                                unitClass:'count-number__unit'+numberInfo.unitClass,
+                                unitText:'건'
+                            })
+                            if gap
+                                +gapPoint({
+                                    gabClass:numberInfo.gapClass,
+                                    gabNum:numberInfo.gapNum,
+                                })
+                    else
+                        div.count-number__cont
+                            +number({
+                                numClass:'count-number__num'+numberInfo.numClass,
+                                num:numberInfo.num
+                            })
+                            +unit({
+                                unitClass:'count-number__unit'+numberInfo.unitClass,
+                                unitText:'건'
+                            })
+                            if gap
+                                +gapPoint({
+                                    gabClass:numberInfo.gapClass,
+                                    gabNum:numberInfo.gapNum,
+                                })
