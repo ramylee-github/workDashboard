@@ -1,0 +1,179 @@
+/**
+*===============
+* top section
+*==============
+*/
+
+
+.top-section {
+    @include flexBox(row, space-between, stretch);
+}
+.last-3m-data {
+    .tab {
+        width: 591px;
+    }
+
+    .tab__menu-wrap {
+        @include flexBox(row, flex-start, flex-start);
+    }
+
+    .tab__menu {
+        min-width: 186px;
+        height:32px;
+        padding:0 15px;
+        margin-right: 1px;
+        border-top:1px solid rgba(255,255,255, 0.3);
+        border-left:1px solid rgba(255,255,255, 0.3);
+        border-right:1px solid rgba(255,255,255, 0.3);
+        color:#a1a0a0;
+        font: {
+            size:14px;
+            weight:500;
+        }
+        background-color: #dcdcdc;
+
+        &.active {
+            border:0;
+            border-right:1px solid #cdcece;
+            color:#715deb;
+            background-color: #fff;
+        }
+    }
+
+    .tab__cont {
+        height: 207px;
+        background-color: #fff;
+        box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    }
+}
+
+.type-data {
+    flex-basis: calc(100% - 9px);
+    margin-left: 9px;
+    margin-top: 32px;
+}
+
+.type-data__list {
+    @include flexBox(row, flex-start, flex-start);
+    flex-wrap: wrap;
+
+    li {
+        flex:1 1 calc(50% - 10px);
+        height:98px;
+        margin:0 10px 10px 0;
+        padding:10px 15px 17px;
+        box-shadow: 1px 1px 2px rgba(0,0,0,0.15);
+        background:url('../img/bg_symbol.png') no-repeat 100% 0;
+
+        &:nth-child(even) {
+            margin-right: 0;
+        }
+    }
+    .type-data__sales {
+        background-color: #715deb;
+
+        dl {
+            padding:2px 0 0 7px;
+        }
+
+        dt {
+            &::before {
+                width: 34px;
+                height: 30px;
+                margin-right: 11px;
+                background-image:url('../img/ico_case_sales.png');
+            }
+        }
+    }
+    .type-data__responsibility {
+        background-color: #5d88fb;
+
+        dl {
+            padding:0 0 0 10px;
+        }
+
+        dt {
+            &::before {
+                height: 36px;
+                background-image:url('../img/ico_case_responsibillity.png');
+            }
+        }
+    }
+    .type-data__civilian {
+        background-color: #1ea5a1;
+
+        dl {
+            padding:3px 0 0 9px;
+        }
+
+        dt {
+            &::before {
+                height: 26px;
+                margin-right: 13px;
+                background-image:url('../img/ico_case_civilian.png');
+            }
+        }
+    }
+    .type-data__complaints {
+        background-color: #f3919b;
+
+        dl {
+            padding:4px 0 0 9px;
+        }
+
+        dt {
+            &::before {
+                height: 29px;
+                margin-right: 11px;
+                background-image:url('../img/ico_case_-complaints.png');
+            }
+        }
+    }
+
+    dl {
+        @include flexBox(row, space-between, flex-start);
+        flex-wrap: wrap;
+        align-content: space-between;
+        height: 100%;
+    }
+    dt,
+    dd {
+        flex-basis: 100%;
+        color:#fff;
+        
+        &>* {
+            color:#fff;
+        }
+    }
+    dt {
+        font: {
+            size:16px;
+            weight:500;
+        }
+
+        &::before {
+            @include pseudoSelector(31px, 23px);
+            margin-right: 10px;
+            background-repeat: no-repeat;
+            background-position: 0 0;
+        }
+    }
+    dd {
+        text-align: right;
+    }
+
+    .num {
+        font: {
+            size:30px;
+            weight:700;
+        }
+        letter-spacing: -0.5px;
+    }
+    .unit {
+        margin-top:13px;
+        margin-left: 6px;
+        font: {
+            size:14px;
+        }
+    }
+}

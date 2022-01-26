@@ -1,0 +1,17 @@
+/**
+*=============
+* page
+*============
+*/
+
+.page-container {
+    height: calc(100vh - 100px);
+    background:url('../img/bg_pattern_body.gif') repeat 0 0;
+    overflow: auto;
+
+    .page-inner {
+        width:1280px;
+        margin:0 auto;
+        padding:17px 40px 20px;
+    }
+}

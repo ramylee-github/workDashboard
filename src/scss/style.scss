@@ -1,10 +1,9 @@
-@import "_reset";
-@import "_variables";
+@import "commons/reset";
+@import "commons/variables";
+@import "commons/common";
 
-/*
-* Webfonts
-*/
-
-/*
-* commons
-*/
+@import "patterns/header";
+@import "patterns/footer";
+@import "patterns/page";
+@import "patterns/topSection";
+@import "patterns/bottomSection";

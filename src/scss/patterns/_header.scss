@@ -1,0 +1,95 @@
+/**
+*==============
+* header
+*=============
+*/
+
+.page-header {
+    @include positionR(1);
+    height:70px;
+    background:#fff url('../img/bg_symbol_gnb.png') no-repeat 100% 0;
+    box-shadow:0 1px 3px rgba(0,0,0,0.15);
+
+    h1 {
+        padding:23px 0 0 40px;
+        font: {
+            size:23px;
+            weight:800;
+        }
+        letter-spacing: -1px;
+    }
+}
+
+.gnb-util {
+    @include positionA(2);
+    top:6px;
+    right:103px;
+
+    & * {
+        color:#666;
+        font: {
+            size:12px;
+            weight:600;
+        }
+    }
+
+    &>* {
+        &::before {
+            @include pseudoSelector(1px, 8px);
+            margin:-1px 10px 0;
+            background-color: #ccc;
+        }
+
+        &:first-child::before {
+            content: none;
+        }
+    }
+
+    .user {
+        strong {
+            color:#705dcf;
+        }
+    }
+}
+
+.page-nav {
+    @include positionA(2);
+    right: 83px;
+    top:35px;
+
+    ul {
+        @include flexBox(row, flex-start, center);
+    }
+
+    a {
+        @include positionR(1);
+        display: inline-block;
+        height: 36px;
+        color:#444;
+        font: {
+            size:16px;
+            weight: 500;
+        }
+        padding:0 20px;
+        text-align: center;
+
+        &::after {
+            @include positionA(2);
+            bottom:8px;
+            left:0;
+            @include pseudoSelector(100%, 3px);
+            background-color: #715deb;
+            transform:scale(0);
+            transform-origin: 50% 50%;
+            transition: transform .1s ease-in-out;
+        }
+
+        &:hover {
+            text-decoration: none;
+
+            &::after {
+                transform:scale(1);
+            }
+        }
+    }
+}

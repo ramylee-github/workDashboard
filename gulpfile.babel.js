@@ -24,7 +24,7 @@ const routes = {
         dest:"build"
     },
     img: {
-        src:"src/img/*",
+        src:"src/assets/*",
         dest:"build/img"
     },
     scss: {

@@ -1,8 +1,8 @@
 include ../components/numbers
 
 mixin countNumber(numberInfo = {})
-    dl.count-number
-        dt.count-number-area__tit=numberInfo.tit
+    dl.count-number(class=(numberInfo.exClass))
+        dt.count-number__tit=numberInfo.tit
         dd(class=(numberInfo.exContClass))
             +number({
                 numClass:'count-number__num' + numberInfo.numClass,
@@ -11,4 +11,6 @@ mixin countNumber(numberInfo = {})
             +unit({
                 unitClass:'count-number__unit' + numberInfo.unitClass,
                 unitText:'건'
-            })       
+            }) 
+            if numberInfo.extraText  
+                span.count-number__extra-txt=numberInfo.extraText

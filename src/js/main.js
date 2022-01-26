@@ -1,8 +1,37 @@
 'use strict';
-charts();
-quickMenu();
 
+window.onload = () => {
+    // charts();
+    // quickMenu();
+    tabs();
+}
 
+function tabs() {
+    let tabMenu = document.querySelectorAll('.tab__menu');
+
+    const tabClick = (e) => {
+        let tabSelectorSelected = e.target;
+        let tabContainer = tabSelectorSelected.closest('.tab');
+        let tabs = tabContainer.querySelectorAll('.tab__menu');
+        let tabsCont = tabContainer.querySelectorAll('.tab__cont');
+
+        if(!tabSelectorSelected.classList.contains('active')) {
+            tabs.forEach((tabSelected, i) => {
+                if(tabSelectorSelected.getAttribute('data-id') === tabsCont[i].getAttribute('data-id')) {
+                    tabSelected.classList.add('active');
+                    tabsCont[i].classList.add('active');
+                } else {
+                    tabSelected.classList.remove('active');
+                    tabsCont[i].classList.remove('active');
+                }
+            });
+        }
+    }
+
+   tabMenu.forEach((tabMenu) => {
+    tabMenu.addEventListener('click', event => tabClick(event));
+   });
+}
 function quickMenu() {
     const quickMenu = document.querySelector('#quickMenu');
 

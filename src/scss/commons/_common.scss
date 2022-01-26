@@ -1,0 +1,44 @@
+* {
+  color:#333;
+  font: {
+    size:13px;
+    weight:400;
+    family:"SUIT", sans-serif;
+  }
+  box-sizing: border-box;
+}
+
+a {
+  color:#333;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+button {
+  padding:0;
+  border:0;
+  cursor: pointer;
+  background: none;
+}
+.unit {
+  display: inline-block;
+  vertical-align: top;
+}
+.blind {
+  width:0;
+  height:0;
+  font-size: 0;
+  text-indent: -9999px;
+  visibility: hidden;
+}
+
+//tabs
+.tab__cont {
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}

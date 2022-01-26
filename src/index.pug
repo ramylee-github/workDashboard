@@ -1,26 +1,25 @@
 extends templates/layout
 include templates/utilities/countNumber
 include templates/utilities/typeItem
+include templates/utilities/noticeListitem
 
 
 block content 
-    main.main-container 
-        div.main-inner
+    main.page-container
+        div.page-inner
             h2.blind VOC 현황
-            div.flex-layout.justify-sb.align-end.top-section
-                article.data-area.last-3m
+            div.top-section
+                article.last-3m-data
                     h3.blind 최근 3개월 금감원, 대내민원 접수, 처리기일
-                    div#tabs1
-                        ul.tab-list 
-                            li.active(data-tit='firstTab1_1') 
-                                span.tab-tit 최근 3개월 금감원 목표
-                            li(data-tit='firstTab1_2') 
-                                span.tab-tit 최근 3개월대내민원접수/처리기일
-                        div.tab-cont#firstTab1_1
-                            div.last-3m__list
+                    div.tab
+                        div.tab__menu-wrap 
+                            button(type="button", data-id="0").tab__menu.active 최근 3개월 금감원 목표
+                            button(type="button", data-id="1").tab__menu 최근 3개월대내민원접수/처리기일
+                        div.tab__cont(data-id="0").active
+                            div.last-3m-data__list
                                 dl
                                     dt 10월 목표 및 발생
-                                    dd.flex-layout.justify-end
+                                    dd
                                         strong.count-number-area__num 117
                                             span.unit 건
                                         span.gap-point /
@@ -32,7 +31,7 @@ block content
                                         })
                                 dl
                                     dt 11월 목표 및 발생
-                                    dd.flex-layout.justify-end
+                                    dd
                                         strong.count-number-area__num 128
                                             span.unit 건
                                         span.gap-point /
@@ -44,7 +43,7 @@ block content
                                         })
                                 dl
                                     dt 12월 목표 및 발생
-                                    dd.flex-layout.justify-end
+                                    dd
                                         strong.count-number-area__num 99
                                             span.unit 건
                                         span.gap-point /
@@ -55,11 +54,11 @@ block content
                                             gapNum: '11'
                                         })
                             div.graph-area#chart01(style=('width:350px; height:180px;'))
-                        div.tab-cont#firstTab1_2
-                            div.last-3m__list
+                        div.tab__cont(data-id="1")
+                            div.last-3m-data__list
                                 dl
                                     dt 10월 접수건수 및 평균 처리일
-                                    dd.flex-layout.justify-end
+                                    dd
                                         strong.count-number-area__num 1,117
                                             span.unit 건
                                         span.gap-point /
@@ -67,7 +66,7 @@ block content
                                             span.unit 일
                                 dl
                                     dt 11월 접수건수 및 평균 처리일
-                                    dd.flex-layout.justify-end
+                                    dd
                                         strong.count-number-area__num 3,128
                                             span.unit 건
                                         span.gap-point /
@@ -75,51 +74,155 @@ block content
                                             span.unit 일
                                 dl
                                     dt 12월 접수건수 및 평균 처리일
-                                    dd.flex-layout.justify-end
+                                    dd
                                         strong.count-number-area__num 990
                                             span.unit 건
                                         span.gap-point /
                                         strong.count-number-area__num 3.9
                                             span.unit 일
                             div.graph-area#chart02(style=('width:350px; height:180px;'))
-                article.data-area.bytype
+                article.type-data
                     h3.blind 지점(부서)의 유형별 처리건수
-                    ul.bytype__list
+                    ul.type-data__list
                         +typeItem({
-                            exItemClass:'bytype__sales',
+                            exItemClass:'type-data__sales',
                             typeItemTitle: '영업현장 응대',
                             num: '45',
                         })
                         +typeItem({
-                            exItemClass:'bytype__responsibility',
+                            exItemClass:'type-data__responsibility',
                             typeItemTitle: '책임대응',
                             num: '5',
                         })
                         +typeItem({
-                            exItemClass:'bytype__civilian',
+                            exItemClass:'type-data__civilian',
                             typeItemTitle: '대내민간 (연간 235건)',
                             num: '85',
                         })
                         +typeItem({
-                            exItemClass:'bytype__complaints',
+                            exItemClass:'type-data__complaints',
                             typeItemTitle: '금감원 민원 (연간 42건)',
                             num: '19',
                         })
-            div.flex-layout.justify-sb.align-stretch.btm-section
+            div.btm-section
                 article.box.occurrence-channel
                     h3 채널별 대외민원 발생건수
+                    div.table-wrap
+                        table
+                            colgroup 
+                                col(style="width:23px;") 
+                                col(style="width:67px;") 
+                                col(style="width:62px;") 
+                                col(style="width:62px;") 
+                                col(style="width:62px;") 
+                            thead 
+                                tr 
+                                    th(scope="col", colspan="2", rowspan="2") 구분
+                                    th(scope="col", colspan="3") 7월 금감원 민원
+                                tr 
+                                    th(scope="col") 목표
+                                    th(scope="col") 발생
+                                    th(scope="col") Gap
+                            tbody 
+                                tr 
+                                    th(scope="row", colspan="2").bg--skyblue DB
+                                    td.bg--skyblue 15
+                                    td.bg--skyblue 5
+                                    td.bg--skyblue 15
+                                tr 
+                                    th(scope="row").bg--skyblue 
+                                    th(scope="row") 제휴 
+                                    td 2
+                                    td 2
+                                    td 3
+                                tr 
+                                    th(scope="row").bg--skyblue 
+                                    th(scope="row") HY 
+                                    td 22
+                                    td 17
+                                    td 30
+                                tr 
+                                    th(scope="row", colspan="2") FC1
+                                    td.bg--skyblue 13
+                                    td.bg--skyblue 3
+                                    td.bg--skyblue 16
+                                tr 
+                                    th(scope="row", colspan="2") FC2
+                                    td.bg--skyblue 13
+                                    td.bg--skyblue 3
+                                    td.bg--skyblue 16
+                                tr 
+                                    th(scope="row", colspan="2") GA
+                                    td.bg--skyblue 13
+                                    td.bg--skyblue 3
+                                    td.bg--skyblue 16
+                                tr 
+                                    th(scope="row", colspan="2") BA
+                                    td 43
+                                    td 6
+                                    td 1
+                                tr 
+                                    th(scope="row", colspan="2") 본사
+                                    td 4
+                                    td 41
+                                    td 6
+                                tr 
+                                    th(scope="row", colspan="2") 보험금
+                                    td 9
+                                    td 8
+                                    td 8
+                            tfoot 
+                                tr 
+                                    th(scope="row", colspan="2") 전사
+                                    td 
+                                        a(href="javascript:;") 92 
+                                    td 
+                                        a(href="javascript:;") 132 
+                                    td 
+                                        a(href="javascript:;") 85 
+                    div.table-wrap          
+                        table
+                            colgroup 
+                                col(style="width:62px;") 
+                            thead 
+                                tr 
+                                    th(scope="col") 
+                                        | 대내
+                                        br
+                                        | 민원
+                            tbody 
+                                tr 
+                                    td.bg--skyblue 15
+                                tr 
+                                    td 3
+                                tr 
+                                    td 65
+                                tr 
+                                    td.bg--skyblue 16
+                                tr 
+                                    td.bg--skyblue 16
+                                tr 
+                                    td.bg--skyblue 16
+                                tr 
+                                    td -
+                                tr 
+                                    td 6
+                                tr 
+                                    td 6
+                            tfoot 
+                                    td 
+                                        a(href="javascript:;") 285 
+
                 article.box.occurrence-status
                     h3 당월유형별 발생현황
-                    div#tabs2
-                        ul.tab-list 
-                            li.active(data-tit='firstTab2_1') 
-                                span.tab-tit 전체
-                            li(data-tit='firstTab2_2') 
-                                span.tab-tit 대내민원
-                        div.tab-cont#firstTab2_1
-                            div.graph-area#chart03(style=('height: 240px;'))
-                        div.tab-cont#firstTab2_2
-                            div.graph-area#chart04(style=('height: 180px;'))
+                    div.tab
+                        div.tab__menu-wrap 
+                            button(type="button", data-id="0").tab__menu.active 전체
+                            button(type="button", data-id="1").tab__menu 대내민원
+                        div.tab__cont(data-id="0").active
+                            div.graph-area#chart03(style=('height: 240px;')) 1
+                        div.tab__cont(data-id="1")
+                            div.graph-area#chart04(style=('height: 180px;')) 2
                 article.box.voc-status
                     h3 VOC 업무현황
                     ul.voc__summary 
@@ -129,6 +232,7 @@ block content
                                 num:'12',
                                 numClass: '',
                                 unitClass: '',
+                                extraText:''
                             })
                         li 
                             +countNumber({
@@ -136,6 +240,7 @@ block content
                                 num:'138',
                                 numClass: '',
                                 unitClass: '',
+                                extraText:''
                             })
                         li.--emphasized 
                             +countNumber({
@@ -143,7 +248,104 @@ block content
                                 num:'56',
                                 numClass: '',
                                 unitClass: '',
+                                extraText: '(0 / 2)'
                             })
-                            span (0 / 2)
-                    
+                    dl.count-number
+                        dt.count-number__big-title 나의부서 / 지점처리
+                        dd.count-number__big-cont
+                            +countNumber({
+                                tit:'지연',
+                                num:'4',
+                                exClass:'--emphasized',
+                                numClass:'',
+                                unitClass: '',
+                                extraText:''
+                            })
+                            +countNumber({
+                                tit:'당일',
+                                num:'5',
+                                exClass:'',
+                                numClass:'',
+                                unitClass: '',
+                                extraText:''
+                            })
+                            +countNumber({
+                                tit:'전체',
+                                num:'28',
+                                exClass:'',
+                                numClass:'',
+                                unitClass: '',
+                                extraText:''
+                            })
+                    dl.count-number
+                        dt.count-number__big-title 나의처리
+                        dd.count-number__big-cont
+                            +countNumber({
+                                tit:'지연',
+                                num:'1',
+                                exClass:'--emphasized',
+                                numClass:'',
+                                unitClass: '',
+                                extraText:''
+                            })
+                            +countNumber({
+                                tit:'당일',
+                                num:'2',
+                                exClass:'',
+                                numClass:'',
+                                unitClass: '',
+                                extraText:''
+                            })
+                            +countNumber({
+                                tit:'전체',
+                                num:'5',
+                                exClass:'',
+                                numClass:'',
+                                unitClass: '',
+                                extraText:''
+                            })
+                    dl.count-number
+                        dt.count-number__big-title 협조처리
+                        dd.count-number__big-cont
+                            +countNumber({
+                                tit:'지연',
+                                num:'0',
+                                exClass:'--emphasized',
+                                numClass:'',
+                                unitClass: '',
+                                extraText:''
+                            })
+                            +countNumber({
+                                tit:'당일',
+                                num:'1',
+                                exClass:'',
+                                numClass:'',
+                                unitClass: '',
+                                extraText:''
+                            })
+                            +countNumber({
+                                tit:'전체',
+                                num:'0',
+                                exClass:'',
+                                numClass:'',
+                                unitClass: '',
+                                extraText:''
+                            })
+                    div.notice-area
+                        h3 공지사항
+                        ul 
+                            +noticeListitem({
+                                title:'불만 사례 대처방법에 대한 교육 실시',
+                                date:'2022.01.05'
+                            })
+                            +noticeListitem({
+                                title:'VOC 시스템 사용 매뉴얼',
+                                date:'2022.01.03'
+                            })
+                            +noticeListitem({
+                                title:'홈페이지가 새롭게 개편되었습니다.',
+                                date:'2022.01.01'
+                            })
+                                
+                        
                 
