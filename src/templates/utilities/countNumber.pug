@@ -14,3 +14,7 @@ mixin countNumber(numberInfo = {})
             }) 
             if numberInfo.extraText  
                 span.count-number__extra-txt=numberInfo.extraText
+
+mixin smallCountNumber(numberInfo = {}) 
+    strong.num=numberInfo.num
+        span.unit=numberInfo.unitText 

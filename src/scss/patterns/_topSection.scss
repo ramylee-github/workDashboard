@@ -3,7 +3,9 @@
 * top section
 *==============
 */
-
+.graph-area {
+    background-color: #715deb;
+}
 
 .top-section {
     @include flexBox(row, space-between, stretch);
@@ -42,8 +44,41 @@
 
     .tab__cont {
         height: 207px;
+        padding:20px 24px 10px;
         background-color: #fff;
         box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+
+        &.active {
+            @include flexBox(row, space-between, flex-start);
+        }
+    }
+
+    .last-3m-data__list {
+        flex-basis: 139px;
+        min-width: 139px;
+
+        dl {
+            margin-top: 15px;
+
+            &:first-child {margin-top:0;}
+        }
+        dt {
+            color:#444;
+            font: {
+                size:14px;
+                weight:500;
+            }
+        }
+        dd {
+            @include flexBox(row, flex-end, center);
+            margin-top: 5px;
+        }
+        .num+.unit {
+            margin:2px 5px 0;
+            font: {
+                weight:500;
+            }
+        }
     }
 }
 

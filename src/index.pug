@@ -1,4 +1,5 @@
 extends templates/layout
+include templates/components/numbers
 include templates/utilities/countNumber
 include templates/utilities/typeItem
 include templates/utilities/noticeListitem
@@ -20,11 +21,18 @@ block content
                                 dl
                                     dt 10월 목표 및 발생
                                     dd
-                                        strong.count-number-area__num 117
-                                            span.unit 건
-                                        span.gap-point /
-                                        strong.count-number-area__num 100
-                                            span.unit 건
+                                        +smallCountNumber({
+                                            num:'117',
+                                            unitText:'건'
+                                        })
+                                        +unit({
+                                            unitClass:'',
+                                            unitText:'/'
+                                        })
+                                        +smallCountNumber({
+                                            num:'100',
+                                            unitText:'건'
+                                        })
                                         +gapPoint({
                                             exGapClass:'gap-point--up',
                                             gapNum: '17'
@@ -32,11 +40,18 @@ block content
                                 dl
                                     dt 11월 목표 및 발생
                                     dd
-                                        strong.count-number-area__num 128
-                                            span.unit 건
-                                        span.gap-point /
-                                        strong.count-number-area__num 123
-                                            span.unit 건
+                                        +smallCountNumber({
+                                            num:'128',
+                                            unitText:'건'
+                                        })
+                                        +unit({
+                                            unitClass:'',
+                                            unitText:'/'
+                                        })
+                                        +smallCountNumber({
+                                            num:'123',
+                                            unitText:'건'
+                                        })
                                         +gapPoint({
                                             exGapClass:'gap-point--up',
                                             gapNum: '5'
@@ -44,11 +59,18 @@ block content
                                 dl
                                     dt 12월 목표 및 발생
                                     dd
-                                        strong.count-number-area__num 99
-                                            span.unit 건
-                                        span.gap-point /
-                                        strong.count-number-area__num 110
-                                            span.unit 건
+                                        +smallCountNumber({
+                                            num:'99',
+                                            unitText:'건'
+                                        })
+                                        +unit({
+                                            unitClass:'',
+                                            unitText:'/'
+                                        })
+                                        +smallCountNumber({
+                                            num:'110',
+                                            unitText:'건'
+                                        })
                                         +gapPoint({
                                             exGapClass:'gap-point--down',
                                             gapNum: '11'
@@ -59,27 +81,48 @@ block content
                                 dl
                                     dt 10월 접수건수 및 평균 처리일
                                     dd
-                                        strong.count-number-area__num 1,117
-                                            span.unit 건
-                                        span.gap-point /
-                                        strong.count-number-area__num 4.5
-                                            span.unit 일
+                                        +smallCountNumber({
+                                            num:'1,117',
+                                            unitText:'건'
+                                        })
+                                        +unit({
+                                            unitClass:'',
+                                            unitText:'/'
+                                        })
+                                        +smallCountNumber({
+                                            num:'4.5',
+                                            unitText:'일'
+                                        })
                                 dl
                                     dt 11월 접수건수 및 평균 처리일
                                     dd
-                                        strong.count-number-area__num 3,128
-                                            span.unit 건
-                                        span.gap-point /
-                                        strong.count-number-area__num 4.8
-                                            span.unit 일
+                                        +smallCountNumber({
+                                            num:'3,128',
+                                            unitText:'건'
+                                        })
+                                        +unit({
+                                            unitClass:'',
+                                            unitText:'/'
+                                        })
+                                        +smallCountNumber({
+                                            num:'4.8',
+                                            unitText:'일'
+                                        })
                                 dl
                                     dt 12월 접수건수 및 평균 처리일
                                     dd
-                                        strong.count-number-area__num 990
-                                            span.unit 건
-                                        span.gap-point /
-                                        strong.count-number-area__num 3.9
-                                            span.unit 일
+                                        +smallCountNumber({
+                                            num:'990',
+                                            unitText:'건'
+                                        })
+                                        +unit({
+                                            unitClass:'',
+                                            unitText:'/'
+                                        })
+                                        +smallCountNumber({
+                                            num:'3.9',
+                                            unitText:'일'
+                                        })
                             div.graph-area#chart02(style=('width:350px; height:180px;'))
                 article.type-data
                     h3.blind 지점(부서)의 유형별 처리건수

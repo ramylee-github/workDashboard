@@ -1,0 +1,52 @@
+.num {
+    font: {
+        size:16px;
+        weight:700;
+    }
+}
+.unit {
+    display: inline-block;
+    margin:2px 0 0 3px;
+    font: {
+        size:13px;
+        weight:400;
+    }
+    vertical-align: top;
+}
+.gap-point {
+    display: inline-block;
+    width: 40px;
+    height: 15px;
+    margin:0 0 0 5px;
+    border-radius: 15px;
+    font: {
+        size:11px;
+        weight:700;
+    }
+    vertical-align: top;
+    text-align: center;
+    line-height: 14px;
+
+    &.gap-point--up {
+        color:#ea536c;
+        background-color: #ffe7eb;
+
+        &::before {
+           background-image: url('../img/ico_arr_up.gif');
+        }
+    }
+    &.gap-point--down {
+        color:#3c95f8;
+        background-color: #dcedff;
+
+        &::before {
+            background-image: url('../img/ico_arr_down.gif');
+        }
+    }
+
+    &::before {
+        @include pseudoSelector(7px, 7px);
+        margin-right: 3px;
+        @include bgImg(0 0);
+    }
+}
