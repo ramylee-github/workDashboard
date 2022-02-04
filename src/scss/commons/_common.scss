@@ -34,6 +34,16 @@ button {
   visibility: hidden;
 }
 
+//title
+h3 {
+  margin-bottom: 10px;
+  
+  font: {
+    size:15px;
+    weight:500;
+  }
+}
+
 //tabs
 .tab__cont {
   display: none;
@@ -41,4 +51,9 @@ button {
   &.active {
     display: block;
   }
+}
+
+//etc 
+.bg--skyblue {
+  background-color: #eff4ff;
 }

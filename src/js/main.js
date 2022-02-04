@@ -1,7 +1,9 @@
 'use strict';
 
+const { blue } = require("gulp-cli/lib/shared/ansi");
+
 window.onload = () => {
-    // charts();
+    charts();
     // quickMenu();
     tabs();
 }
@@ -19,8 +21,10 @@ function tabs() {
             tabs.forEach((tabSelected, i) => {
                 if(tabSelectorSelected.getAttribute('data-id') === tabsCont[i].getAttribute('data-id')) {
                     tabSelected.classList.add('active');
+                    tabSelected.querySelectorAll("input[type='radio']").checked = true;
                     tabsCont[i].classList.add('active');
                 } else {
+                    tabSelected.querySelectorAll("input[type='radio']").checked = false;
                     tabSelected.classList.remove('active');
                     tabsCont[i].classList.remove('active');
                 }
@@ -50,14 +54,14 @@ function charts() {
     spiderChart('chart03');
     lineChart('chart04');
 
-    stackedBarChart = (chartId) => {
+    function stackedBarChart(chartId) {
         Highcharts.chart(chartId, {
             chart: {
                 type: 'column',
                 style: {
-                    fontFamily:"oneshinhan"
+                    fontFamily:"SUIT"
                 },
-                margin: [20,10, 25, 60]
+                margin: [20, 10, 25, 66]
             },
             title: {
                 text: ''
@@ -98,7 +102,7 @@ function charts() {
                     fontSize:'10px',
                     }
                 },
-                gridLineColor:'#f1f1f1'
+                gridLineColor:'#f1f1f1',
             }, {
                 title: {
                     text: ''
@@ -135,12 +139,16 @@ function charts() {
             }]
         });
     }
-    barLineChart = (chartId) => {
+    function barLineChart (chartId) {
+        Highcharts.setOptions({
+            colors: ['#5fa0ff', '#6383ff', '#715deb']
+        });
+
         Highcharts.chart(chartId, {
             chart: {
                 type: 'column',
                 style: {
-                    fontFamily:"oneshinhan"
+                    fontFamily:"SUIT"
                 },
                 margin: [20, 30, 25, 60]
             },
@@ -170,6 +178,7 @@ function charts() {
             },
             yAxis: [{
                 min: 0,
+                max: 1200,
                 title: {
                     text: '',
                     style: {
@@ -183,19 +192,22 @@ function charts() {
                     fontSize:'10px',
                     }
                 },
-                gridLineColor:'#f1f1f1'
+                gridLineWidth:0,
+                tickPositions: [0, 400, 800, 1200],
             }, {
+                min: 0,
+                max: 5,  
                 title: {
                     text: ''
                 },
                 labels: {
-                        style: {
+                    style: {
                         color:'#aaa',
                         fontSize:'10px',
-                        }
+                    }
                 },
-                max: 5,    
-                opposite: true
+                opposite: true,
+                tickPositions: [0, 1, 2, 3, 4, 5],
             }],
             legend: {
                 enabled: false
@@ -218,6 +230,7 @@ function charts() {
                 name: '평균처리일수',
                     color: '#715deb',
                 data: [820, 1200, 450],
+                colorByPoint: true,
                 pointWidth:25,
                 tooltip: {
                     valueSuffix: '일'
@@ -226,7 +239,7 @@ function charts() {
                 name: '접수건수',
                 type: 'spline',
                 color: '#00bdb7',
-                data: [1, 2, 5],
+                data: [3.2, 3.8, 3],
                 tooltip: {
                     valueSuffix: '건'
                 },
@@ -234,19 +247,17 @@ function charts() {
             }]
         });
     }
-    spiderChart = (chartId) => {
+    function spiderChart (chartId) {
         Highcharts.chart(chartId, {
             chart: {
-                    polar: true,
+                polar: true,  
+                type: 'line',
                 style: {
-                    fontFamily:"oneshinhan"
+                    fontFamily:"SUIT"
                 },
             },
             title: {
                 text: ''
-            },
-            pane: {
-                size: '80%'
             },
             credits: {
                 enabled: false
@@ -295,19 +306,30 @@ function charts() {
                 name: '발생현황',
                     type: 'area',
                     color: '#715deb',
-                data: [120, 200, 50,90,156 ],
+                data: [120, 200, 100, 200, 356 ],
+                tooltip: {
+                    valueSuffix: '건'
+                },
+                pointPlacement: 'on'
+            },
+            {
+                name: '발생현황',
+                    type: 'area',
+                    color: '#16bb8c',
+                data: [230, 100, 250, 400, 259 ],
                 tooltip: {
                     valueSuffix: '건'
                 },
                 pointPlacement: 'on'
             }],
+            
         });
     }
-    lineChart = (chartId) => {
+    function lineChart (chartId) {
         Highcharts.chart(chartId, {
             chart: {
                 style: {
-                    fontFamily:"oneshinhan"
+                    fontFamily:"SUIT"
                 },
                 plotBackgroundColor:'#f9f9f9',
                 margin: [0, 1, 30, 1]
@@ -377,7 +399,7 @@ function charts() {
                     color: '#9e92ed',
                     data: [3, 12, 5, 5],
                     marker: {
-                        symbol: 'url(../../../page/images/main/ico_symbol_graph.png)'
+                        symbol: 'url(img/ico_symbol_graph.png)'
                     }
                     }]
         });

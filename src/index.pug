@@ -75,7 +75,7 @@ block content
                                             exGapClass:'gap-point--down',
                                             gapNum: '11'
                                         })
-                            div.graph-area#chart01(style=('width:350px; height:180px;'))
+                            div.graph-area#chart01(style=('width:407px; height:180px;'))
                         div.tab__cont(data-id="1")
                             div.last-3m-data__list
                                 dl
@@ -123,7 +123,7 @@ block content
                                             num:'3.9',
                                             unitText:'일'
                                         })
-                            div.graph-area#chart02(style=('width:350px; height:180px;'))
+                            div.graph-area#chart02(style=('width:390px; height:180px;'))
                 article.type-data
                     h3.blind 지점(부서)의 유형별 처리건수
                     ul.type-data__list
@@ -153,11 +153,11 @@ block content
                     div.table-wrap
                         table
                             colgroup 
-                                col(style="width:23px;") 
-                                col(style="width:67px;") 
-                                col(style="width:62px;") 
-                                col(style="width:62px;") 
-                                col(style="width:62px;") 
+                                col(style="width:21px;") 
+                                col(style="width:68px;") 
+                                col(style="width:61px;") 
+                                col(style="width:61px;") 
+                                col(style="width:61px;") 
                             thead 
                                 tr 
                                     th(scope="col", colspan="2", rowspan="2") 구분
@@ -173,34 +173,34 @@ block content
                                     td.bg--skyblue 5
                                     td.bg--skyblue 15
                                 tr 
-                                    th(scope="row").bg--skyblue 
+                                    th(scope="row").bg--skyblue.no-line 
                                     th(scope="row") 제휴 
                                     td 2
                                     td 2
                                     td 3
                                 tr 
-                                    th(scope="row").bg--skyblue 
+                                    th(scope="row").bg--skyblue.no-line 
                                     th(scope="row") HY 
                                     td 22
                                     td 17
                                     td 30
                                 tr 
-                                    th(scope="row", colspan="2") FC1
+                                    th(scope="row", colspan="2").bg--skyblue FC1
                                     td.bg--skyblue 13
                                     td.bg--skyblue 3
                                     td.bg--skyblue 16
                                 tr 
-                                    th(scope="row", colspan="2") FC2
+                                    th(scope="row", colspan="2").bg--skyblue FC2
                                     td.bg--skyblue 13
                                     td.bg--skyblue 3
                                     td.bg--skyblue 16
                                 tr 
-                                    th(scope="row", colspan="2") GA
+                                    th(scope="row", colspan="2").bg--skyblue GA
                                     td.bg--skyblue 13
                                     td.bg--skyblue 3
                                     td.bg--skyblue 16
                                 tr 
-                                    th(scope="row", colspan="2") BA
+                                    th(scope="row", colspan="2").bg--skyblue BA
                                     td 43
                                     td 6
                                     td 1
@@ -223,8 +223,7 @@ block content
                                         a(href="javascript:;") 132 
                                     td 
                                         a(href="javascript:;") 85 
-                    div.table-wrap          
-                        table
+                        table.single
                             colgroup 
                                 col(style="width:62px;") 
                             thead 
@@ -254,14 +253,20 @@ block content
                                     td 6
                             tfoot 
                                     td 
-                                        a(href="javascript:;") 285 
+                                        a(href="javascript:;") 285          
 
                 article.box.occurrence-status
                     h3 당월유형별 발생현황
                     div.tab
                         div.tab__menu-wrap 
-                            button(type="button", data-id="0").tab__menu.active 전체
-                            button(type="button", data-id="1").tab__menu 대내민원
+                            .input-wrap(data-id="0").tab__menu.active
+                                input(type="radio", name="all", id="all", checked)
+                                label(for="all") 전체  
+                            .input-wrap(data-id="1").tab__menu
+                                input(type="radio", name="complaints", id="complaints")
+                                label(for="complaints") 대내민원  
+                            //- button(type="button", data-id="0").tab__menu.active 전체
+                            //- button(type="button", data-id="1").tab__menu 대내민원
                         div.tab__cont(data-id="0").active
                             div.graph-area#chart03(style=('height: 240px;')) 1
                         div.tab__cont(data-id="1")

@@ -11,7 +11,114 @@
 
     .box {
         flex:0 0 calc(33.33% - 14px);
+        padding-top:15px;
+        padding-bottom:15px;
         background-color: #fff;
         box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    }
+
+    .table-wrap {
+        @include flexBox(row, space-between, stretch);
+        overflow: auto;
+    }
+
+    table {
+        a {
+            color:#715deb;
+            font: {
+                weight:500;
+            }
+            text-decoration: underline;
+        }
+        th, td {
+            padding:5px;
+            color:#444;
+            font: {
+                weight:500;
+            }
+            border-top:1px solid #dedede;
+            border-right:1px solid #dedede;
+            text-align: center;
+            vertical-align: middle;
+
+            &:first-child {
+                border-left:1px solid #dedede;
+            }
+
+            &.no-line {
+                border-top: 0;
+            }
+        }
+        thead {
+            th {
+                height: 29px;
+                font: {
+                    size:14px;
+                }
+                background-color: #fff;
+
+                &:first-child {
+                    border-left:1px solid #dedede;
+                }
+            }
+        }
+        tbody {
+            tr:first-child {
+                th,
+                td {
+                    border-top:1px solid #8a8a8a;
+                }
+            }
+        }
+        tfoot {
+            th,
+            td {
+                background-color: #f1eeff;
+            }
+
+            tr:last-child {
+                border-bottom:1px solid #dedede;
+            }
+            
+        }
+
+        &.single {
+            thead {
+                th {
+                    height: 58px;
+                }
+            }
+        }
+    }
+
+}
+
+.occurrence-channel {
+    padding-left:20px;
+    padding-right:20px;
+}
+
+.occurrence-status {
+    @include positionR(1);
+    padding-left:16px;
+    padding-right:16px;
+
+    .tab__menu-wrap {
+        @include positionA(2);
+        top:16px;
+        right:17px;
+
+        .tab__menu {
+            margin-left: 14px;
+        }
+    }
+}
+
+.voc-status {
+    padding-left:18px;
+    padding-right:18px;
+
+    h3 {
+        margin-bottom: 13px;
     }
 }
