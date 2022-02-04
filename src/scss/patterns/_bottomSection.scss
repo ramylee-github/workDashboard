@@ -112,6 +112,10 @@
             margin-left: 14px;
         }
     }
+
+    .graph-area {
+        margin-top:25px;
+    }
 }
 
 .voc-status {
@@ -120,5 +124,127 @@
 
     h3 {
         margin-bottom: 13px;
+    }
+}
+
+.voc__summary {
+    @include flexBox(row, space-between, flex-start);
+
+    li {
+        flex:1 0 calc(31% - 8px);
+        min-height: 60px;
+        margin-left:8px;
+        background-color: #f0f0f0;
+
+        &:first-child {
+            margin-left: 0;
+        }
+        &.--emphasized {
+            flex-basis: 132px;
+            background-color: #fde4e7;
+
+            .num {
+                color:#eb4179;
+            }
+        }
+        dl {
+            padding:10px 11px 10px 13px;
+        }
+        dt {
+            font: {
+                size:14px;
+                weight:500;
+            }
+            letter-spacing: -0.5px;
+        }
+        dd {
+            margin-top:7px;
+            text-align: right;
+        }
+        .num {
+            font: {
+                size:17px;
+            }
+        }
+        .unit {
+            margin:3px 0 0 3px;
+        }
+        .count-number__extra-txt {
+            display: inline-block;
+            margin-top: 3px;
+            vertical-align: top;
+            font: {
+                weight:500;
+            }
+        }
+    }
+    .count-number {
+        margin-top: 0;
+    }
+}
+
+.count-number {
+    margin-top:15px;
+    padding:0 12px 0 8px;
+
+    .count-number__big-title {
+        color:#888;
+        font: {
+            size:14px;
+            weight:500;
+        }
+    }
+
+    .count-number__big-cont {
+        @include flexBox(row, space-between, center);
+
+        .count-number {
+            margin-top:6px;
+            padding:0;
+            flex-basis: 80px;
+            @include flexBox(row, space-between, center);
+
+            .count-number__tit {
+                font-weight: 500;
+            }
+
+            &.--emphasized {
+                .num {
+                    color: #eb4179;
+                }
+            }
+        }
+    }
+}
+
+.notice-area {
+    margin-top:17px;
+    padding:14px 7px 0;
+    border-top:1px solid #e5e5e5;
+
+    li {
+        @include flexBox(row, space-between, center);
+        line-height: 22px;
+    }
+
+    .notice__title {
+        width:260px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+
+        &::before {
+            @include pseudoSelector(2px, 4px);
+            margin-right:6px;
+            @include bgImg(0 0);
+            background-image: url('../img/bul_gray.gif');
+        }
+    }
+    .notice__date {
+        color:#949494;
+        font: {
+            size:12px;
+            weight:500;
+        }
     }
 }

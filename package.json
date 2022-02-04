@@ -41,6 +41,7 @@
     "uglifyify": "^5.0.2"
   },
   "dependencies": {
+    "global": "^4.4.0",
     "gulp-cli": "^2.3.0"
   },
   "browserslist": [

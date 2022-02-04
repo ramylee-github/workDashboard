@@ -257,20 +257,18 @@ block content
 
                 article.box.occurrence-status
                     h3 당월유형별 발생현황
-                    div.tab
+                    div.tab-type-radio
                         div.tab__menu-wrap 
-                            .input-wrap(data-id="0").tab__menu.active
-                                input(type="radio", name="all", id="all", checked)
-                                label(for="all") 전체  
-                            .input-wrap(data-id="1").tab__menu
-                                input(type="radio", name="complaints", id="complaints")
-                                label(for="complaints") 대내민원  
-                            //- button(type="button", data-id="0").tab__menu.active 전체
-                            //- button(type="button", data-id="1").tab__menu 대내민원
+                            .input-wrap
+                                input(type="radio", name="all", id="all", class="input-radio", checked)
+                                label(for="all",data-id="0").tab__menu.active 전체  
+                            .input-wrap
+                                input(type="radio", name="complaints", id="complaints", class="input-radio")
+                                label(for="complaints", data-id="1").tab__menu 대내민원  
                         div.tab__cont(data-id="0").active
-                            div.graph-area#chart03(style=('height: 240px;')) 1
+                            div.graph-area#chart03(style=('height: 310px;')) 1
                         div.tab__cont(data-id="1")
-                            div.graph-area#chart04(style=('height: 180px;')) 2
+                            div.graph-area#chart04(style=('height: 280px;')) 2
                 article.box.voc-status
                     h3 VOC 업무현황
                     ul.voc__summary 
@@ -292,7 +290,7 @@ block content
                             })
                         li.--emphasized 
                             +countNumber({
-                                tit:'미확인 (협조 / VOC)',
+                                tit:'미확인 (협조/VOC)',
                                 num:'56',
                                 numClass: '',
                                 unitClass: '',

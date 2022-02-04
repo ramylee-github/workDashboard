@@ -1,5 +1,5 @@
 
 mixin noticeListitem(listItemInfo = {})
-        li.flex-layout.justify-sb
-            p.notice__title=listItemInfo.title
+        li
+            a(href="javascript:;").notice__title=listItemInfo.title
             span.notice__date=listItemInfo.date

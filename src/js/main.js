@@ -6,6 +6,7 @@ window.onload = () => {
     charts();
     // quickMenu();
     tabs();
+    tabsRadioButton();
 }
 
 function tabs() {
@@ -21,12 +22,40 @@ function tabs() {
             tabs.forEach((tabSelected, i) => {
                 if(tabSelectorSelected.getAttribute('data-id') === tabsCont[i].getAttribute('data-id')) {
                     tabSelected.classList.add('active');
-                    tabSelected.querySelectorAll("input[type='radio']").checked = true;
                     tabsCont[i].classList.add('active');
                 } else {
-                    tabSelected.querySelectorAll("input[type='radio']").checked = false;
                     tabSelected.classList.remove('active');
                     tabsCont[i].classList.remove('active');
+                }
+            });
+        }
+    }
+
+   tabMenu.forEach((tabMenu) => {
+    tabMenu.addEventListener('click', event => tabClick(event));
+   });
+}
+function tabsRadioButton() {
+    let tabMenu = document.querySelectorAll('.tab-type-radio .tab__menu');
+
+    const tabClick = (e) => {
+        let tabSelectorSelected = e.target;
+        let tabContainer = tabSelectorSelected.closest('.tab-type-radio');
+        let tabs = tabContainer.querySelectorAll('.tab-type-radio .tab__menu');
+        let tabsCont = tabContainer.querySelectorAll('.tab-type-radio .tab__cont');
+
+        if(!tabSelectorSelected.classList.contains('active')) {
+            tabs.forEach((tabSelected, i) => {
+                if(tabSelectorSelected.getAttribute('data-id') === tabsCont[i].getAttribute('data-id')) {
+                    tabSelected.classList.add('active');
+                    tabsCont[i].classList.add('active');
+                    tabSelected.previousElementSibling.setAttribute('checked', '');
+                    tabSelected.previousElementSibling.checked = true;
+                } else {
+                    tabSelected.classList.remove('active');
+                    tabsCont[i].classList.remove('active');
+                    tabSelected.previousElementSibling.removeAttribute('checked');
+                    tabSelected.previousElementSibling.checked = false;
                 }
             });
         }
@@ -358,11 +387,9 @@ function charts() {
                 },
                 max:20,
                 min:0,
-                    lineColor:'#e3e3e3',
-                    lineWidth:1,
+                lineColor:'#e3e3e3',
+                lineWidth:1,
                 gridLineWidth: 1,
-                minorTickInterval: 7,
-                minorTickLength: 0,
                 labels: {
                         enabled: false
                 },
